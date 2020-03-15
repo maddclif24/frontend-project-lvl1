@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
 
 const whatsYourName = () => {
-  let playerName = '';
   const actual = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${actual}!`);
-  playerName = actual;
+  const playerName = actual;
   return playerName;
 };
 
@@ -23,14 +22,15 @@ const questionForNumber = (genRandomNum) => {
   return answer;
 };
 
-const evenGame = (genRandomNum, name) => {
-  for (let correctAnswer = 0; correctAnswer < 3; genRandomNum = randomNumber()) {
-    const playerAnswer = questionForNumber(genRandomNum);
-    if (playerAnswer === isEvenNumber(genRandomNum)) {
+const evenGame = (name) => {
+  let actualRandomNum = randomNumber();
+  for (let correctAnswer = 0; correctAnswer < 3; actualRandomNum = randomNumber()) {
+    const playerAnswer = questionForNumber(actualRandomNum);
+    if (playerAnswer === isEvenNumber(actualRandomNum)) {
       correctAnswer += 1;
       console.log('Correct!');
-    } else if (playerAnswer !== isEvenNumber(genRandomNum)) {
-      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isEvenNumber(genRandomNum)}`);
+    } else if (playerAnswer !== isEvenNumber(actualRandomNum)) {
+      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isEvenNumber(actualRandomNum)}`);
       correctAnswer = 0;
     }
   }
@@ -42,6 +42,7 @@ const game = () => {
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
-  evenGame(genRandomNum, name);
+  evenGame(name);
+  return genRandomNum;
 };
 export default game;
