@@ -1,9 +1,8 @@
 import readlineSync from 'readline-sync';
 
 const whatsYourName = () => {
-  const actual = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${actual}!`);
-  const playerName = actual;
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${playerName}!`);
   return playerName;
 };
 
@@ -18,8 +17,7 @@ const isEvenNumber = (genRandomNum) => {
 
 const questionForNumber = (genRandomNum) => {
   console.log(`Question: ${genRandomNum}`);
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
+  return readlineSync.question('Your answer: ');
 };
 
 const evenGame = (name) => {
