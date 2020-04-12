@@ -8,11 +8,16 @@ const whatsYourName = () => {
 
 const randomNumber = () => Math.floor(Math.random() * 100);
 
-const isEvenNumber = (genRandomNum) => {
-  if (genRandomNum % 2 === 0) {
-    return 'yes';
+const isPrime = (number) => {
+  if (number < 2) {
+    return 'no';
   }
-  return 'no';
+  for (let i = 2; i < number; i += 1) {
+    if (number % i === 0) {
+      return 'no';
+    }
+  }
+  return 'yes';
 };
 
 const questionForNumber = (genRandomNum) => {
@@ -24,11 +29,11 @@ const evenGame = (name) => {
   let actualRandomNum = randomNumber();
   for (let correctAnswer = 0; correctAnswer < 3; actualRandomNum = randomNumber()) {
     const playerAnswer = questionForNumber(actualRandomNum);
-    if (playerAnswer === isEvenNumber(actualRandomNum)) {
+    if (playerAnswer === isPrime(actualRandomNum)) {
       correctAnswer += 1;
       console.log('Correct!');
-    } else if (playerAnswer !== isEvenNumber(actualRandomNum)) {
-      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isEvenNumber(actualRandomNum)}`);
+    } else if (playerAnswer !== isPrime(actualRandomNum)) {
+      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isPrime(actualRandomNum)}`);
       correctAnswer = 0;
     }
   }
@@ -39,7 +44,7 @@ const game = () => {
   const genRandomNum = randomNumber();
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   evenGame(name);
   return genRandomNum;
 };
