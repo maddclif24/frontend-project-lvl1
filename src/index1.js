@@ -34,7 +34,9 @@ const questionForNumber = (questionForCalc) => {
   return readlineSync.question('Your answer: ');
 };
 
-const calcGame = (name, result, questionForCalc) => {
+const calcGame = (name) => {
+  let questionForCalc = `${randomNumber()}${' '}${randomMathSign()}${' '}${randomNumber()}`;
+  let result = trueAnswer(questionForCalc);
   for (let correctAnswer = 0; correctAnswer < 3; questionForCalc = `${randomNumber()}${' '}${randomMathSign()}${' '}${randomNumber()}`) {
     const playerAnswer = questionForNumber(questionForCalc);
     result = trueAnswer(questionForCalc);
@@ -51,13 +53,9 @@ const calcGame = (name, result, questionForCalc) => {
 };
 
 const game = () => {
-  const genRandomNum = randomNumber();
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('What is the result of the expression?');
-  const questionForCalc = `${randomNumber()}${' '}${randomMathSign()}${' '}${randomNumber()}`;
-  const result = trueAnswer(questionForCalc);
-  calcGame(name, result, questionForCalc);
-  return genRandomNum;
+  calcGame(name);
 };
 export default game;

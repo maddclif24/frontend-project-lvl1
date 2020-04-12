@@ -26,14 +26,14 @@ const questionForNumber = (genRandomNum) => {
 };
 
 const evenGame = (name) => {
-  let actualRandomNum = randomNumber();
-  for (let correctAnswer = 0; correctAnswer < 3; actualRandomNum = randomNumber()) {
-    const playerAnswer = questionForNumber(actualRandomNum);
-    if (playerAnswer === isPrime(actualRandomNum)) {
+  let genRandomNum = randomNumber();
+  for (let correctAnswer = 0; correctAnswer < 3; genRandomNum = randomNumber()) {
+    const playerAnswer = questionForNumber(genRandomNum);
+    if (playerAnswer === isPrime(genRandomNum)) {
       correctAnswer += 1;
       console.log('Correct!');
-    } else if (playerAnswer !== isPrime(actualRandomNum)) {
-      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isPrime(actualRandomNum)}`);
+    } else if (playerAnswer !== isPrime(genRandomNum)) {
+      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isPrime(genRandomNum)}`);
       correctAnswer = 0;
     }
   }
@@ -41,11 +41,9 @@ const evenGame = (name) => {
 };
 
 const game = () => {
-  const genRandomNum = randomNumber();
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   evenGame(name);
-  return genRandomNum;
 };
 export default game;

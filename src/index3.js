@@ -52,7 +52,9 @@ const questionForNumber = (genReplacment) => {
   return readlineSync.question('Your answer: ');
 };
 
-const progressionGame = (name, genReplacment, genTrueAnswer) => {
+const progressionGame = (name) => {
+  let genReplacment = replacement();
+  let genTrueAnswer = answerForProg(genReplacment);
   for (let correctAnswer = 0; correctAnswer < 3; genReplacment = replacement()) {
     const playerAnswer = questionForNumber(genReplacment);
     genTrueAnswer = answerForProg(genReplacment);
@@ -69,11 +71,9 @@ const progressionGame = (name, genReplacment, genTrueAnswer) => {
 };
 
 const game = () => {
-  const genReplacment = replacement();
-  const genTrueAnswer = answerForProg(genReplacment);
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('What number is missing in the progression?');
-  progressionGame(name, genReplacment, genTrueAnswer);
+  progressionGame(name);
 };
 export default game;

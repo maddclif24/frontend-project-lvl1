@@ -21,14 +21,14 @@ const questionForNumber = (genRandomNum) => {
 };
 
 const evenGame = (name) => {
-  let actualRandomNum = randomNumber();
-  for (let correctAnswer = 0; correctAnswer < 3; actualRandomNum = randomNumber()) {
-    const playerAnswer = questionForNumber(actualRandomNum);
-    if (playerAnswer === isEvenNumber(actualRandomNum)) {
+  let genRandomNum = randomNumber();
+  for (let correctAnswer = 0; correctAnswer < 3; genRandomNum = randomNumber()) {
+    const playerAnswer = questionForNumber(genRandomNum);
+    if (playerAnswer === isEvenNumber(genRandomNum)) {
       correctAnswer += 1;
       console.log('Correct!');
-    } else if (playerAnswer !== isEvenNumber(actualRandomNum)) {
-      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isEvenNumber(actualRandomNum)}`);
+    } else if (playerAnswer !== isEvenNumber(genRandomNum)) {
+      console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${isEvenNumber(genRandomNum)}`);
       correctAnswer = 0;
     }
   }
@@ -36,11 +36,9 @@ const evenGame = (name) => {
 };
 
 const game = () => {
-  const genRandomNum = randomNumber();
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('Answer "yes" if the number is even, otherwise answer "no"');
   evenGame(name);
-  return genRandomNum;
 };
 export default game;

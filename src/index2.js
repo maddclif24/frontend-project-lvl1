@@ -30,7 +30,9 @@ const questionForNumber = (questionForGcd) => {
   return readlineSync.question('Your answer: ');
 };
 
-const gcdGame = (name, genQuestion, questionForGcd) => {
+const gcdGame = (name) => {
+  let questionForGcd = `${randomNumber()}${' '}${randomNumber()}`;
+  let genQuestion = genArr(questionForGcd);
   for (let correctAnswer = 0; correctAnswer < 3; questionForGcd = `${randomNumber()}${' '}${randomNumber()}`) {
     const playerAnswer = Number(questionForNumber(questionForGcd));
     genQuestion = genArr(questionForGcd);
@@ -46,12 +48,9 @@ const gcdGame = (name, genQuestion, questionForGcd) => {
 };
 
 const game = () => {
-  const questionForGcd = `${randomNumber()}${' '}${randomNumber()}`;
-  const genQuestion = genArr(questionForGcd);
   console.log('Welcome to the Brain Games!');
   const name = whatsYourName();
   console.log('Find the greatest common divisor of given numbers.');
-  gcdGame(name, genQuestion, questionForGcd);
-  return genQuestion;
+  gcdGame(name);
 };
 export default game;
