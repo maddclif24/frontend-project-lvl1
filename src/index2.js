@@ -6,7 +6,7 @@ const whatsYourName = () => {
   return playerName;
 };
 
-const randomNumber = () => Math.floor(Math.random(1) * 100);
+const randomNumber = () => Math.floor(Math.random() * 100);
 
 const genArr = (questionForGcd) => {
   const arr = questionForGcd.split(' ');

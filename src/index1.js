@@ -6,11 +6,11 @@ const whatsYourName = () => {
   return playerName;
 };
 
-const randomNumber = () => Math.floor(Math.random(1) * 100);
+const randomNumber = () => Math.floor(Math.random() * 100);
 
 const mathSigns = ['+', '-', '*'];
 
-const genMathSign = () => Math.floor(Math.random(1) * 3);
+const genMathSign = () => Math.floor(Math.random() * 3);
 
 const randomMathSign = () => mathSigns[genMathSign()];
 
