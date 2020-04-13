@@ -30,7 +30,7 @@ export const calcGame = () => {
 
   const questionForCalc = `${randomNumber()}${' '}${randomMathSign()}${' '}${randomNumber()}`;
 
-  return [questionForCalc, trueAnswer(questionForCalc)];
+  return [questionForCalc, String(trueAnswer(questionForCalc))];
 };
 
 export const rules = 'What is the result of the expression?';

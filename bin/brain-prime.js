@@ -2,4 +2,4 @@
 import game from '../src/engine.js';
 import { rules, primeGame } from '../src/primeGame';
 
-game(rules, primeGame());
+game(rules, primeGame);

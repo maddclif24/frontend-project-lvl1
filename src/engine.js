@@ -12,12 +12,14 @@ const questionForNumber = (question) => {
 };
 
 const startGame = (name, nameGame) => {
-  let genQuestionAnswer = nameGame;
-  const question = genQuestionAnswer[0];
-  const answer = genQuestionAnswer[1];
+  let genQuestionAnswer = nameGame();
+  let question = genQuestionAnswer[0];
+  let answer = genQuestionAnswer[1];
   const victory = 3;
   for (let correctAnswer = 0; correctAnswer < victory; genQuestionAnswer = nameGame()) {
     const playerAnswer = questionForNumber(question);
+    question = genQuestionAnswer[0];
+    answer = genQuestionAnswer[1];
     if (playerAnswer === answer) {
       correctAnswer += 1;
       console.log('Correct!');
