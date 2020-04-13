@@ -1,5 +1,3 @@
-import game from './engine';
-
 const randomNumber = () => {
   const limit = 100;
   return Math.floor(Math.random() * limit);
