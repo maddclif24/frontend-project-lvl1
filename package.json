@@ -2,7 +2,7 @@
   "name": "frontend-project-lvl1",
   "version": "2.0.0",
   "description": "first-poject",
-  "main": "src/index.js",
+  "main": "src/evenGame.js.js",
   "type": "module",
   "bin": {
     "brain-games": "bin/brain-games.js",

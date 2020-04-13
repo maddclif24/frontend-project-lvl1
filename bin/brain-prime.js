@@ -1,4 +1,5 @@
 #!/usr/bin/env node
-import game from '../src/index4.js';
+import game from '../src/engine.js';
+import { rules, primeGame } from '../src/primeGame';
 
-game();
+game(rules, primeGame());
