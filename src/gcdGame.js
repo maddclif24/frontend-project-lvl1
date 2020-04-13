@@ -25,7 +25,7 @@ export const gcdGame = () => {
 
   const genQuestion = genArr(questionForGcd);
 
-  return [questionForGcd, gcd(genQuestion)];
+  return [questionForGcd, String(gcd(genQuestion))];
 };
 
 export const rules = 'Find the greatest common divisor of given numbers.';

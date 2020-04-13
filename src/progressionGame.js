@@ -49,7 +49,7 @@ const answerForProg = (genReplacment) => {
 export const progressionGame = () => {
   const genReplacment = replacement();
 
-  return [genReplacment, answerForProg(genReplacment)];
+  return [genReplacment, String(answerForProg(genReplacment))];
 };
 
 export const rules = 'What number is missing in the progression?';
