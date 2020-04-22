@@ -1,55 +1,39 @@
-const randomNumber = () => {
-  const limit = 100;
-  return Math.floor(Math.random() * limit);
-};
+import game from './engine.js';
+import randomNumber from './randomNumber.js';
 
 const randomStep = () => {
-  const limit = 9;
-  const shift = 1;
-  return Math.floor(Math.random() * limit) + shift;
+  const lower = 1;
+  const height = 10;
+  return randomNumber(lower, height);
 };
 
 const arProgression = () => {
   let voidString = '';
-  const number = randomNumber();
+  const high = 100;
+  const low = 0;
+  const number = randomNumber(low, high);
   const step = randomStep();
+  let trueAnswer;
   for (let i = 1; i < 11; i += 1) {
-    voidString += `${(number + (i - 1) * step)}${' '}`;
+    if (i === step) {
+      trueAnswer = number + (i - 1) * step;
+      voidString += '.. ';
+    } else voidString += `${(number + (i - 1) * step)} `;
   }
-  return voidString;
+  return [voidString, trueAnswer];
 };
 
-const replacement = () => {
-  let result = '';
-  const progression = arProgression().split(' ');
-  const index = randomStep();
-  progression[index] = '..';
-  for (let i = 0; i < progression.length - 1; i += 1) {
-    result += `${progression[i]}${' '}`;
-  }
-  return result;
+const progressionGame = () => {
+  const questionAndAnswer = arProgression();
+  const question = String(questionAndAnswer[0]);
+  const answer = String(questionAndAnswer[1]);
+
+  return [question, answer];
 };
 
-const answerForProg = (genReplacment) => {
-  let place = 0;
-  const arrReplacment = genReplacment.split(' ');
-  let factor = arrReplacment[1] - arrReplacment[0];
-  for (let i = 0; i < arrReplacment.length; i += 1) {
-    if (arrReplacment[i] === '..') {
-      place = i;
-      break;
-    }
-  }
-  if (place <= arrReplacment.length / 2) {
-    factor = arrReplacment[arrReplacment.length - 2] - arrReplacment[arrReplacment.length - 3];
-  }
-  return Number(arrReplacment[0]) + place * factor;
+const launchProgressionGame = () => {
+  const rules = 'What number is missing in the progression?';
+  game(rules, progressionGame);
 };
 
-export const progressionGame = () => {
-  const genReplacment = replacement();
-
-  return [genReplacment, String(answerForProg(genReplacment))];
-};
-
-export const rules = 'What number is missing in the progression?';
+export default launchProgressionGame;

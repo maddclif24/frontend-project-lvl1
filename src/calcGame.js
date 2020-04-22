@@ -1,36 +1,43 @@
-const randomNumber = () => {
-  const limit = 100;
-  return Math.floor(Math.random() * limit);
-};
-
-const genMathSign = () => {
-  const limit = 3;
-  return Math.floor(Math.random() * limit);
-};
+import game from './engine.js';
+import randomNumber from './randomNumber.js';
 
 const trueAnswer = (questionForCalc) => {
   const test = questionForCalc.split(' ');
-  let actualResult = 0;
-  if (questionForCalc.includes('+') === true) {
-    actualResult = Number(test[0]) + Number(test[2]);
+  let result;
+  switch (test[1]) {
+    case '+':
+      result = Number(test[0]) + Number(test[2]);
+      break;
+    case '-':
+      result = Number(test[0]) - Number(test[2]);
+      break;
+    case '*':
+      result = Number(test[0]) * Number(test[2]);
+      break;
+    default:
+      return NaN;
   }
-  if (questionForCalc.includes('-') === true) {
-    actualResult = Number(test[0]) - Number(test[2]);
-  }
-  if (questionForCalc.includes('*') === true) {
-    actualResult = Number(test[0]) * Number(test[2]);
-  }
-  return actualResult;
+  return result;
 };
 
-export const calcGame = () => {
+const calcGame = () => {
   const mathSigns = ['+', '-', '*'];
+  const high = 100;
+  const low = 0;
+  const signCount = mathSigns.length;
 
-  const randomMathSign = () => mathSigns[genMathSign()];
+  const randomMathSign = () => mathSigns[randomNumber(low, signCount)];
 
-  const questionForCalc = `${randomNumber()}${' '}${randomMathSign()}${' '}${randomNumber()}`;
+  const questionForCalc = `${randomNumber(low, high)} ${randomMathSign()} ${randomNumber(low, high)}`;
+  const question = questionForCalc;
+  const answer = String(trueAnswer(questionForCalc));
 
-  return [questionForCalc, String(trueAnswer(questionForCalc))];
+  return [question, answer];
 };
 
-export const rules = 'What is the result of the expression?';
+const launchCalcGame = () => {
+  const rules = 'What is the result of the expression?';
+  game(rules, calcGame);
+};
+
+export default launchCalcGame;

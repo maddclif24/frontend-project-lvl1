@@ -1,7 +1,5 @@
-const randomNumber = () => {
-  const limit = 100;
-  return Math.floor(Math.random() * limit);
-};
+import game from './engine.js';
+import randomNumber from './randomNumber.js';
 
 const genArr = (questionForGcd) => {
   const arr = questionForGcd.split(' ');
@@ -10,9 +8,7 @@ const genArr = (questionForGcd) => {
   return arr;
 };
 
-const gcd = (genQuestion) => {
-  const m = genQuestion[0];
-  const n = genQuestion[1];
+const gcd = (m, n) => {
   let i = m;
   while (m % i !== 0 || n % i !== 0) {
     i -= 1;
@@ -20,12 +16,23 @@ const gcd = (genQuestion) => {
   return i;
 };
 
-export const gcdGame = () => {
-  const questionForGcd = `${randomNumber()}${' '}${randomNumber()}`;
+const gcdGame = () => {
+  const high = 100;
+  const low = 0;
+  const questionForGcd = `${randomNumber(low, high)} ${randomNumber(low, high)}`;
 
   const genQuestion = genArr(questionForGcd);
+  const m = genQuestion[0];
+  const n = genQuestion[1];
+  const question = questionForGcd;
+  const answer = String(gcd(m, n));
 
-  return [questionForGcd, String(gcd(genQuestion))];
+  return [question, answer];
 };
 
-export const rules = 'Find the greatest common divisor of given numbers.';
+const launchGcdGame = () => {
+  const rules = 'Find the greatest common divisor of given numbers.';
+  game(rules, gcdGame);
+};
+
+export default launchGcdGame;

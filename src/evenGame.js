@@ -1,19 +1,28 @@
-const randomNumber = () => {
-  const limit = 100;
-  return Math.floor(Math.random() * limit);
-};
+import game from './engine.js';
+import randomNumber from './randomNumber.js';
 
-const isEvenNumber = (genRandomNum) => {
-  if (genRandomNum % 2 === 0) {
+const isEvenNumber = (number) => number % 2 === 0;
+
+const evenAnswer = (number) => {
+  if (isEvenNumber(number) === true) {
     return 'yes';
   }
   return 'no';
 };
 
-export const evenGame = () => {
-  const genRandomNum = randomNumber();
+const evenGame = () => {
+  const high = 100;
+  const low = 0;
+  const number = randomNumber(low, high);
+  const question = number;
+  const answer = evenAnswer(number);
 
-  return [genRandomNum, isEvenNumber(genRandomNum)];
+  return [question, answer];
 };
 
-export const rules = 'Answer "yes" if the number is even, otherwise answer "no"';
+const launchEvenGame = () => {
+  const rules = 'Answer "yes" if the number is even, otherwise answer "no"';
+  game(rules, evenGame);
+};
+
+export default launchEvenGame;
