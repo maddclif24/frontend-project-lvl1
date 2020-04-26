@@ -1,11 +1,5 @@
 import readlineSync from 'readline-sync';
 
-const whatsYourName = () => {
-  const playerName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${playerName}!`);
-  return playerName;
-};
-
 const questionForNumber = (question) => {
   console.log(`Question: ${question}`);
   return readlineSync.question('Your answer: ');
@@ -33,9 +27,10 @@ const startGame = (name, nameGame) => {
 const game = (rules, nameGame) => {
   const greeting = 'Welcome to the Brain Games!';
   console.log(greeting);
-  const name = whatsYourName();
+  const playerName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${playerName}!`);
   console.log(rules);
-  startGame(name, nameGame);
+  startGame(playerName, nameGame);
 };
 
 export default game;

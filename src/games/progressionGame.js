@@ -1,20 +1,20 @@
-import game from './engine.js';
-import randomNumber from './randomNumber.js';
+import game from '../engine.js';
+import randomNumber from '../randomNumber.js';
 
-const randomStep = () => {
+const getRandomStep = () => {
   const lower = 1;
   const height = 10;
   return randomNumber(lower, height);
 };
 
-const arProgression = () => {
+const getProgression = () => {
   let voidString = '';
   const high = 100;
   const low = 0;
   const number = randomNumber(low, high);
-  const step = randomStep();
+  const step = getRandomStep();
   let trueAnswer;
-  for (let i = 1; i < 11; i += 1) {
+  for (let i = 1, limitForStep = 11; i < limitForStep; i += 1) {
     if (i === step) {
       trueAnswer = number + (i - 1) * step;
       voidString += '.. ';
@@ -24,15 +24,16 @@ const arProgression = () => {
 };
 
 const progressionGame = () => {
-  const questionAndAnswer = arProgression();
+  const questionAndAnswer = getProgression();
   const question = String(questionAndAnswer[0]);
   const answer = String(questionAndAnswer[1]);
 
   return [question, answer];
 };
 
+const rules = 'What number is missing in the progression?';
+
 const launchProgressionGame = () => {
-  const rules = 'What number is missing in the progression?';
   game(rules, progressionGame);
 };
 

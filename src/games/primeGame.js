@@ -1,11 +1,17 @@
-import game from './engine.js';
-import randomNumber from './randomNumber.js';
+import game from '../engine.js';
+import randomNumber from '../randomNumber.js';
 
 const isPrime = (number) => {
   if (number < 2) {
     return false;
   }
-  for (let i = 2; i < number; i += 1) {
+  if (number === 2) {
+    return true;
+  }
+  if (number % 2 === 0) {
+    return false;
+  }
+  for (let i = 3; i <= Math.sqrt(number); i += 2) {
     if (number % i === 0) {
       return false;
     }
@@ -30,8 +36,9 @@ const primeGame = () => {
   return [question, answer];
 };
 
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+
 const launchPrimeGame = () => {
-  const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   game(rules, primeGame);
 };
 
