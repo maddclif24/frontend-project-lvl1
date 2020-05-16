@@ -5,13 +5,11 @@ const questionForNumber = (question) => {
   return readlineSync.question('Your answer: ');
 };
 
-const startGame = (name, nameGame) => {
+const game = (name, nameGame) => {
   let genQuestionAnswer = nameGame();
-  let question;
-  let answer;
   const victory = 3;
   for (let correctAnswer = 0; correctAnswer < victory; genQuestionAnswer = nameGame()) {
-    [question, answer] = [genQuestionAnswer[0], genQuestionAnswer[1]];
+    const [question, answer] = genQuestionAnswer;
     const playerAnswer = questionForNumber(question);
     if (playerAnswer === answer) {
       correctAnswer += 1;
@@ -24,13 +22,13 @@ const startGame = (name, nameGame) => {
   console.log(`Congratulation, ${name}!`);
 };
 
-const game = (rules, nameGame) => {
+const startGame = (description, nameGame) => {
   const greeting = 'Welcome to the Brain Games!';
   console.log(greeting);
   const playerName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${playerName}!`);
-  console.log(rules);
-  startGame(playerName, nameGame);
+  console.log(description);
+  game(playerName, nameGame);
 };
 
-export default game;
+export default startGame;

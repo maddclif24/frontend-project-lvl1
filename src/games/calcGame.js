@@ -1,7 +1,7 @@
-import game from '../engine.js';
+import startGame from '../engine.js';
 import randomNumber from '../randomNumber.js';
 
-const getTrueAnswer = (firstNumber, secondNumber, mathSign) => {
+const calculate = (firstNumber, secondNumber, mathSign) => {
   let result;
   switch (mathSign) {
     case '+':
@@ -23,23 +23,24 @@ const calcGame = () => {
   const mathSigns = ['+', '-', '*'];
   const high = 100;
   const low = 0;
+  const lowestIdx = 0;
   const signCount = mathSigns.length;
 
-  const getMathSign = () => mathSigns[randomNumber(low, signCount)];
+  const getMathSign = () => mathSigns[randomNumber(lowestIdx, signCount)];
   const mathSign = getMathSign();
   const firstNumber = randomNumber(low, high);
   const secondNumber = randomNumber(low, high);
 
   const question = `${firstNumber} ${mathSign} ${secondNumber}`;
-  const answer = String(getTrueAnswer(firstNumber, secondNumber, mathSign));
+  const answer = String(calculate(firstNumber, secondNumber, mathSign));
 
   return [question, answer];
 };
 
-const rules = 'What is the result of the expression?';
+const description = 'What is the result of the expression?';
 
 const launchCalcGame = () => {
-  game(rules, calcGame);
+  startGame(description, calcGame);
 };
 
 export default launchCalcGame;

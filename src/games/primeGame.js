@@ -1,4 +1,4 @@
-import game from '../engine.js';
+import startGame from '../engine.js';
 import randomNumber from '../randomNumber.js';
 
 const isPrime = (number) => {
@@ -19,27 +19,20 @@ const isPrime = (number) => {
   return true;
 };
 
-const primeAnswer = (number) => {
-  if (isPrime(number) === true) {
-    return 'yes';
-  }
-  return 'no';
-};
-
 const primeGame = () => {
   const high = 100;
   const low = 0;
   const genRandomNum = randomNumber(low, high);
   const question = genRandomNum;
-  const answer = primeAnswer(genRandomNum);
+  const answer = isPrime(genRandomNum) ? 'yes' : 'no';
 
   return [question, answer];
 };
 
-const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const launchPrimeGame = () => {
-  game(rules, primeGame);
+  startGame(description, primeGame);
 };
 
 export default launchPrimeGame;

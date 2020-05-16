@@ -1,40 +1,31 @@
-import game from '../engine.js';
+import startGame from '../engine.js';
 import randomNumber from '../randomNumber.js';
 
-const getRandomStep = () => {
-  const lower = 1;
-  const height = 10;
-  return randomNumber(lower, height);
-};
+const getProgression = (number, step, i) => (number + (i - 1) * step);
 
-const getProgression = () => {
-  let voidString = '';
+const getQuestionAndAnswer = () => {
+  let question = '';
+  const minStep = 1;
+  const maxStep = 10;
   const high = 100;
   const low = 0;
   const number = randomNumber(low, high);
-  const step = getRandomStep();
-  let trueAnswer;
-  for (let i = 1, limitForStep = 11; i < limitForStep; i += 1) {
+  const step = randomNumber(minStep, maxStep);
+  const arithmeticProgressionTermsCount = 10;
+  let answer;
+  for (let i = 1; i <= arithmeticProgressionTermsCount; i += 1) {
     if (i === step) {
-      trueAnswer = number + (i - 1) * step;
-      voidString += '.. ';
-    } else voidString += `${(number + (i - 1) * step)} `;
+      answer = getProgression(number, step, i);
+      question = `${question} ..`;
+    } else question = `${question} ${(getProgression(number, step, i))}`;
   }
-  return [voidString, trueAnswer];
+  return [String(question), String(answer)];
 };
 
-const progressionGame = () => {
-  const questionAndAnswer = getProgression();
-  const question = String(questionAndAnswer[0]);
-  const answer = String(questionAndAnswer[1]);
-
-  return [question, answer];
-};
-
-const rules = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
 const launchProgressionGame = () => {
-  game(rules, progressionGame);
+  startGame(description, getQuestionAndAnswer);
 };
 
 export default launchProgressionGame;
