@@ -1,5 +1,5 @@
-import startGame from '../engine.js';
-import randomNumber from '../randomNumber.js';
+import playGame from '../engine.js';
+import getRandomNum from '../randomNumber.js';
 
 const isPrime = (number) => {
   if (number < 2) {
@@ -19,12 +19,11 @@ const isPrime = (number) => {
   return true;
 };
 
-const primeGame = () => {
-  const high = 100;
-  const low = 0;
-  const genRandomNum = randomNumber(low, high);
-  const question = genRandomNum;
-  const answer = isPrime(genRandomNum) ? 'yes' : 'no';
+const getQuestionAndAnswer = () => {
+  const min = 0;
+  const max = 100;
+  const question = getRandomNum(min, max);
+  const answer = isPrime(question) ? 'yes' : 'no';
 
   return [question, answer];
 };
@@ -32,7 +31,7 @@ const primeGame = () => {
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const launchPrimeGame = () => {
-  startGame(description, primeGame);
+  playGame(description, getQuestionAndAnswer);
 };
 
 export default launchPrimeGame;

@@ -1,12 +1,12 @@
-import startGame from '../engine.js';
-import randomNumber from '../randomNumber.js';
+import playGame from '../engine.js';
+import getRandomNum from '../randomNumber.js';
 
 const isEven = (number) => number % 2 === 0;
 
 const getQuestionAndAnswer = () => {
-  const high = 100;
-  const low = 0;
-  const question = randomNumber(low, high);
+  const min = 0;
+  const max = 100;
+  const question = getRandomNum(min, max);
   const answer = isEven(question) ? 'yes' : 'no';
 
   return [question, answer];
@@ -15,7 +15,7 @@ const getQuestionAndAnswer = () => {
 const description = 'Answer "yes" if the number is even, otherwise answer "no"';
 
 const launchEvenGame = () => {
-  startGame(description, getQuestionAndAnswer);
+  playGame(description, getQuestionAndAnswer);
 };
 
 export default launchEvenGame;

@@ -1,6 +1,5 @@
 # frontend-project-lvl1
 [![Maintainability](https://api.codeclimate.com/v1/badges/a7c9a290a64282e11a6b/maintainability)](https://codeclimate.com/github/maddclif24/frontend-project-lvl1/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a7c9a290a64282e11a6b/test_coverage)](https://codeclimate.com/github/maddclif24/frontend-project-lvl1/test_coverage)
 [![](https://github.com/maddclif24/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/maddclif24/frontend-project-lvl1/actions)
 
 

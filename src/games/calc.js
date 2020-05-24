@@ -1,5 +1,5 @@
-import startGame from '../engine.js';
-import randomNumber from '../randomNumber.js';
+import playGame from '../engine.js';
+import getRandomNum from '../randomNumber.js';
 
 const calculate = (firstNumber, secondNumber, mathSign) => {
   let result;
@@ -19,17 +19,17 @@ const calculate = (firstNumber, secondNumber, mathSign) => {
   return result;
 };
 
-const calcGame = () => {
+const getQuestionAndAnswer = () => {
   const mathSigns = ['+', '-', '*'];
-  const high = 100;
-  const low = 0;
+  const min = 0;
+  const max = 100;
   const lowestIdx = 0;
   const signCount = mathSigns.length;
 
-  const getMathSign = () => mathSigns[randomNumber(lowestIdx, signCount)];
+  const getMathSign = () => mathSigns[getRandomNum(lowestIdx, signCount)];
   const mathSign = getMathSign();
-  const firstNumber = randomNumber(low, high);
-  const secondNumber = randomNumber(low, high);
+  const firstNumber = getRandomNum(min, max);
+  const secondNumber = getRandomNum(min, max);
 
   const question = `${firstNumber} ${mathSign} ${secondNumber}`;
   const answer = String(calculate(firstNumber, secondNumber, mathSign));
@@ -40,7 +40,7 @@ const calcGame = () => {
 const description = 'What is the result of the expression?';
 
 const launchCalcGame = () => {
-  startGame(description, calcGame);
+  playGame(description, getQuestionAndAnswer);
 };
 
 export default launchCalcGame;
