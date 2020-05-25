@@ -7,17 +7,14 @@ const getQuiz = (question) => {
 
 const startQuiz = (playerName, getQuestionAndAnswer) => {
   const endGame = 3;
-  let correctAnswerCount = 0;
-  while (correctAnswerCount < endGame) {
+  for (let correctAnswerCount = 0; correctAnswerCount < endGame; correctAnswerCount += 1) {
     const [question, answer] = getQuestionAndAnswer();
     const playerAnswer = getQuiz(question);
-    if (playerAnswer === answer) {
-      correctAnswerCount += 1;
-      console.log('Correct!');
-    } else {
+    if (playerAnswer !== answer) {
       console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${answer}`);
-      correctAnswerCount = 0;
+      return;
     }
+    console.log('Correct!');
   }
   console.log(`Congratulation, ${playerName}!`);
 };
