@@ -3,9 +3,12 @@
 [![](https://github.com/maddclif24/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/maddclif24/frontend-project-lvl1/actions)
 
 
-## Setup
+## Installation
+```
+npm install -g hexlet-frontend-project-lvl1
+```
 [![asciicast](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl.svg)](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl)
-## Launch brain-even
+## $ brain-even
 [![asciicast](https://asciinema.org/a/v8ecB6aXqHSGesKFSNcptAYIU.svg)](https://asciinema.org/a/v8ecB6aXqHSGesKFSNcptAYIU)
 ## Launch brain-calc
 [![asciicast](https://asciinema.org/a/FGt81qSlCUOei9Prs6n60aQC1.svg)](https://asciinema.org/a/FGt81qSlCUOei9Prs6n60aQC1)
