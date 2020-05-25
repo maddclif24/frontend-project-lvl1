@@ -8,13 +8,28 @@
 npm install -g hexlet-frontend-project-lvl1
 ```
 [![asciicast](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl.svg)](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl)
-## $ brain-even
+## Even
+```
+brain-even
+```
 [![asciicast](https://asciinema.org/a/v8ecB6aXqHSGesKFSNcptAYIU.svg)](https://asciinema.org/a/v8ecB6aXqHSGesKFSNcptAYIU)
-## Launch brain-calc
+## Calc
+```
+brain-calc
+```
 [![asciicast](https://asciinema.org/a/FGt81qSlCUOei9Prs6n60aQC1.svg)](https://asciinema.org/a/FGt81qSlCUOei9Prs6n60aQC1)
-## Launch brain-gcd
+## Gcd
+```
+brain-gcd
+```
 [![asciicast](https://asciinema.org/a/RGKQhZIotpaU7HL8SOUe8sr8O.svg)](https://asciinema.org/a/RGKQhZIotpaU7HL8SOUe8sr8O)
-## Launch brain-progression
+## Progression
+```
+brain-progression
+```
 [![asciicast](https://asciinema.org/a/Nz6xGx0lVtS6a1s2u5HDDJjYZ.svg)](https://asciinema.org/a/Nz6xGx0lVtS6a1s2u5HDDJjYZ)
-## Launch brain-prime
+## Prime
+```
+brain-prime
+```
 [![asciicast](https://asciinema.org/a/LZwprDVBmj2o7KjKg2jf2gruL.svg)](https://asciinema.org/a/LZwprDVBmj2o7KjKg2jf2gruL)
