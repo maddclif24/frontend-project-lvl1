@@ -2,7 +2,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a7c9a290a64282e11a6b/maintainability)](https://codeclimate.com/github/maddclif24/frontend-project-lvl1/maintainability)
 [![](https://github.com/maddclif24/frontend-project-lvl1/workflows/Node%20CI/badge.svg)](https://github.com/maddclif24/frontend-project-lvl1/actions)
 
-#Description
+# Description
 Brain Games are set of mini games launching via console.
 
 ## Installation
