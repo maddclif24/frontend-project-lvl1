@@ -7,7 +7,7 @@ Brain Games are set of mini games launching via console.
 
 ## Installation
 ```
-npm install -g hexlet-frontend-project-lvl1
+npm install -g brain-games-maddclif
 ```
 [![asciicast](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl.svg)](https://asciinema.org/a/vnwKW56vv7YF0UNNzM8n2Dpfl)
 ## Even
