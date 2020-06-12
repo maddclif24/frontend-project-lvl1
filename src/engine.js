@@ -1,15 +1,16 @@
 import readlineSync from 'readline-sync';
 
-const playQuiz = (question) => {
+const askQuestionGetAnswer = (question) => {
   console.log(`Question: ${question}`);
   return readlineSync.question('Your answer: ');
 };
 
+const roundsCount = 3;
+
 const playRound = (playerName, getQuestionAndAnswer) => {
-  const roundsCount = 3;
   for (let correctAnswerCount = 0; correctAnswerCount < roundsCount; correctAnswerCount += 1) {
     const [question, answer] = getQuestionAndAnswer();
-    const playerAnswer = playQuiz(question);
+    const playerAnswer = askQuestionGetAnswer(question);
     if (playerAnswer !== answer) {
       console.log(`${playerAnswer} is wrong answer ;(. Correct answer was ${answer}`);
       console.log(`Let's try again, ${playerName}!`);
