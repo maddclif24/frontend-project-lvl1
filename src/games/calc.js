@@ -24,9 +24,9 @@ const getQuestionAndAnswer = () => {
   const min = 0;
   const max = 100;
   const lowestIdx = 0;
-  const signCount = mathSigns.length - 1;
+  const largestIdx = mathSigns.length - 1;
 
-  const getMathSign = () => mathSigns[getRandomNum(lowestIdx, signCount)];
+  const getMathSign = () => mathSigns[getRandomNum(lowestIdx, largestIdx)];
   const mathSign = getMathSign();
   const firstNumber = getRandomNum(min, max);
   const secondNumber = getRandomNum(min, max);

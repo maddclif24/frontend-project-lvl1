@@ -6,8 +6,8 @@ const playQuiz = (question) => {
 };
 
 const playRound = (playerName, getQuestionAndAnswer) => {
-  const gameEndCount = 3;
-  for (let correctAnswerCount = 0; correctAnswerCount < gameEndCount; correctAnswerCount += 1) {
+  const roundsCount = 3;
+  for (let correctAnswerCount = 0; correctAnswerCount < roundsCount; correctAnswerCount += 1) {
     const [question, answer] = getQuestionAndAnswer();
     const playerAnswer = playQuiz(question);
     if (playerAnswer !== answer) {

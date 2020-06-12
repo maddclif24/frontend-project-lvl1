@@ -12,18 +12,15 @@ const getQuestionAndAnswer = () => {
   const startingNumber = getRandomNum(min, max);
   const step = getRandomNum(minStep, maxStep);
   const hiddenElementIndex = getRandomNum(minStep, maxStep);
-  const arithmeticProgressionTermsCount = 10;
+  const progressionLength = 10;
   let answer;
-  for (let i = 0; i <= arithmeticProgressionTermsCount; i += 1) {
+  for (let i = 0; i <= progressionLength; i += 1) {
     if (i === hiddenElementIndex) {
       answer = getProgressionTerm(startingNumber, step, i);
       question = `${question} ..`;
     } else question = `${question} ${(getProgressionTerm(startingNumber, step, i))}`;
   }
-  if (question[0] === ' ') {
-    question = question.trim();
-  }
-  return [question, String(answer)];
+  return [question.trim(), String(answer)];
 };
 
 const description = 'What number is missing in the progression?';
